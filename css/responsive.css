@@ -1,0 +1,450 @@
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  max-width: 1300px;
+}
+
+@media (max-width: 1298px) {
+  .lead_step_box_2 > div:nth-child(4) .box::after {
+    left: -12%;
+    width: 58%;
+    height: 925px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .lead_step_box_3 > div:nth-child(3) .box::after {
+    content: '';
+    position: absolute;
+    top: 65px;
+    right: -187%;
+    width: 185%;
+    height: 120%;
+}
+.lead_step_box_4{
+  padding-top: 0 !important;
+}
+}
+
+@media (max-width: 1260px) {
+  .lead_step_box_2 > div:nth-child(4) .box::after {
+    left: -12%;
+    width: 58%;
+    height: 941px;
+  }
+  .lead_step_box_3 > div:nth-child(3) .box::after {
+    display: none;
+}
+}
+
+@media (max-width: 1248px) {
+  .lead_step_box_2 > div:nth-child(4) .box::after {
+    left: -12%;
+    width: 58%;
+    height: 960px;
+  }
+}
+
+@media (max-width: 1198px) {
+  .lead_step_box_2 > div:nth-child(4) .box::after {
+    left: -12%;
+    width: 60%;
+    height: 970px;
+  }
+}
+
+@media (max-width: 1133px) {
+  .lead_step_box_2 > div:nth-child(4) .box::after {
+    left: -12%;
+    width: 60%;
+    height: 1000px;
+}
+}
+
+@media (max-width: 1084px) {
+  .lead_step_box_2 > div:nth-child(4) .box::after {
+    left: -12%;
+    width: 60%;
+    height: 1030px;
+}
+}
+
+@media (max-width: 1025px) {
+  .lead_step_box_2 > div:nth-child(4) .box::after {
+    left: -12%;
+    width: 60%;
+    height: 1060px;
+}
+}
+
+@media (max-width: 1199px) {
+  /* footer */
+  .contact_me {
+    padding: 50px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  .contact_me > div {
+    width: 45%;
+    border-right: 0 !important;
+  }
+  .contact_me > div:first-child {
+    border-right: 1px solid #dddddd !important;
+  }
+  .footer_row {
+    flex-wrap: wrap;
+  }
+  .footer_row .block {
+    flex: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero_avatar {
+    max-width: 350px;
+  }
+
+  .section-title {
+    font-size: 38px !important;
+  }
+
+  /* Modal Slider */
+  .modal_box .swiper-button-next,
+  .modal_box .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    padding: 8px;
+  }
+
+  .modal_box .swiper-button-next {
+    right: -5px;
+  }
+
+  .modal_box .swiper-button-prev {
+    left: -5px;
+  }
+
+  /* Tech Stack Grid */
+  .tech_stack_grid {
+    gap: 20px;
+    padding: 0 20px;
+  }
+  .tech_stack_grid .ts_grid {
+    padding: 20px 10px;
+  }
+
+  /*  */
+  .qualification_grid .grid_item {
+    max-width: 85px;
+  }
+  .qualification_boxes::before {
+    top: -22px;
+    left: 266px;
+    width: 236px;
+  }
+  .qualification_boxes {
+    transform: translateX(-12px) translateY(-3px);
+    -webkit-transform: translateX(-12px) translateY(-3px);
+    -moz-transform: translateX(-12px) translateY(-3px);
+    -ms-transform: translateX(-12px) translateY(-3px);
+    -o-transform: translateX(-12px) translateY(-3px);
+  }
+  .why_hire::before {
+    top: 28px;
+  }
+
+  /* digital lead */
+  .lead_step_box_2,
+  .lead_step_box_3,
+  .lead_step_box_4 {
+    max-width: 550px;
+    margin: auto;
+    margin-bottom: 0;
+}
+.lead_step_box_2 > div:nth-child(4) .box::after,
+.lead_step_box_3 > div:nth-child(3) .box::after{
+  display: none;
+}
+}
+
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 36px !important;
+  }
+
+  /* Tech Stack Grid */
+  .tech_stack_grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 0 15px;
+  }
+  .tech_stack_grid .ts_grid {
+    font-size: 18px;
+  }
+
+  /* Qualification section */
+  .qualification_grid {
+    justify-content: space-between;
+  }
+  .qualification_grid .grid_item {
+    max-width: 75px;
+    width: 13%;
+  }
+
+  /* hire me */
+  .sec_hire_me {
+    background: url("../img/hire-me-bg.svg") no-repeat;
+    background-size: 30%;
+    background-position: top right;
+  }
+  .why_hire::before {
+    top: 27px;
+    right: -5px;
+    width: 220px;
+  }
+  .qualification_boxes {
+    transform: translateX(-12px) translateY(-3px);
+    -webkit-transform: translateX(-5px) translateY(-3px);
+    padding-top: 120px;
+    -moz-transform: translateX(-12px) translateY(-3px);
+    -ms-transform: translateX(-12px) translateY(-3px);
+    -o-transform: translateX(-12px) translateY(-3px);
+  }
+
+  /* footer */
+  .footer_links{
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 830px) {
+  /* qualifications */
+  .qualification_boxes > div::before {
+    right: calc(50% - 10px);
+    width: 18px;
+    height: 18px;
+  }
+  .qualification_boxes > div:nth-child(even)::before {
+    right: auto;
+    left: calc(50% - 8px);
+  }
+}
+
+@media (max-width: 767px) {
+  .br_md_none > br {
+    display: none;
+  }
+
+  /* header */
+  #navbar .navbar-brand img {
+    height: 42px;
+  }
+  #navbar .navbar-nav,
+  #navbar .navbar-nav li,
+  #navbar .navbar-nav a {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  #navbar .navbar-nav {
+    display: flex;
+    gap: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .hero_avatar {
+    max-width: 300px;
+  }
+
+  /* footer */
+  .contact_me {
+    padding: 50px;
+    gap: 40px;
+  }
+  .contact_me > div {
+    width: 100%;
+    border-right: 0 !important;
+    padding-bottom: 25px;
+  }
+  .contact_me > div:not(:last-child) {
+    width: 100%;
+    border-right: 0 !important;
+    border-bottom: 1px solid #dddddd !important;
+  }
+
+  /* footer */
+  .footer_row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer_row .block .row {
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    flex-direction: column-reverse;
+  }
+  .footer_row .block .row .col {
+    flex: none;
+  }
+  .footer_row .social_links {
+    margin-bottom: 25px;
+  }
+  .footer::after {
+    bottom: 20%;
+    left: -7%;
+  }
+
+  /* showcase */
+  .showcase_control > div {
+    width: 35px;
+    height: 35px;
+  }
+  .showcase .showcase_img {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* qualifications */
+  .qualification_boxes div img {
+    margin-bottom: 8px !important;
+  }
+  .qualification_boxes div h5 {
+    font-size: 18px;
+    margin-bottom: 8px !important;
+  }
+  .qualification_boxes div p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* showcase */
+  .showcase .showcase_img {
+    position: relative;
+    width: 100%;
+    /* aspect-ratio: 1 / 0.65; */
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 28px !important;
+  }
+
+  /* header */
+  .hero_avatar {
+    max-width: 250px;
+  }
+
+  /* footer */
+  .contact_me {
+    padding: 30px;
+    padding-bottom: 20px;
+    gap: 30px;
+  }
+
+  /* qualifications */
+  .qualification_boxes div img {
+    width: 25px;
+    margin-bottom: 8px !important;
+  }
+  .qualification_boxes div h5 {
+    font-size: 16px;
+    margin-bottom: 6px !important;
+  }
+  .qualification_boxes div p {
+    font-size: 12px;
+  }
+  .qualification_boxes > div .inner_box {
+    width: calc(50% - 30px);
+  }
+
+  /* Tech Stack Grid */
+  .tech_stack_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 10px;
+  }
+  .tech_stack_grid .ts_grid {
+    font-size: 16px;
+  }
+
+  /* Qualification section */
+  .qualification_grid {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .why_hire::before {
+    top: 21px;
+    right: -5px;
+    width: 175px;
+  }
+  .qualification_boxes {
+    transform: translateX(-6px) translateY(-3px);
+    -webkit-transform: translateX(-6px) translateY(-3px);
+    padding-top: 105px;
+    -moz-transform: translateX(-6px) translateY(-3px);
+    -ms-transform: translateX(-6px) translateY(-3px);
+    -o-transform: translateX(-6px) translateY(-3px);
+  }
+}
+
+@media (max-width: 480px) {
+  /* header */
+  #offcanvas {
+    width: 100%;
+  }
+  .banner .display-5 {
+    font-size: 28px;
+  }
+  .hero_avatar {
+    max-width: 200px;
+  }
+  .banner .btns a {
+    font-size: 14px;
+  }
+
+  /* qualifications */
+  .qualification_boxes div img {
+    width: 24px;
+    margin-bottom: 7px !important;
+  }
+  .qualification_boxes div h5 {
+    font-size: 14px;
+    margin-bottom: 5px !important;
+  }
+  .qualification_boxes div p {
+    font-size: 11px;
+  }
+  .qualification_boxes > div .inner_box {
+    width: calc(50% - 30px);
+  }
+  .qualification_boxes > div::before {
+    right: calc(50% - 9px);
+    width: 15px;
+    height: 15px;
+  }
+  .qualification_boxes > div:nth-child(even)::before {
+    right: auto;
+    left: calc(50% - 7px);
+  }
+}
+
+@media (max-width: 480px) {
+  /* header */
+  .banner .display-5 {
+    font-size: 28px;
+  }
+  .hero_avatar {
+    max-width: 160px;
+  }
+}

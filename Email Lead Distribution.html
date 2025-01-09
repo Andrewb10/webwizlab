@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Lead Distribution</title>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <div class="modal fade" id="disclaimer_modal" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-header justify-content-end p-0 mb-2 border-0">
+            <button
+              type="button"
+              class="bg-transparent border-0"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <img src="img/minimize-icon.svg" width="30" class="white_img" alt="" />
+            </button>
+          </div>
+          <div class="modal-body modal_box bg-white rounded-4 p-4">
+              <h2 class="fw-semibold text_skyblue h1 mb-4"><img width="50" src="img/Footer_Disclaimer.svg" alt=""> Disclaimer</h2>
+              <p class="fw_500">The content presented on this website is intended solely for portfolio and demonstration purposes. All examples, case studies, and project details have been carefully modified, masked, or redacted to protect sensitive information, ensure privacy, and comply with confidentiality agreements.</p>
+              <p class="fw_500">While the work showcased reflects my skills, experience, and approach to problem-solving, it does not disclose any proprietary data, insider knowledge, or client-specific information. Any resemblance to real-world data or systems is purely coincidental or has been intentionally altered to maintain discretion.</p>
+              <p class="fw_500">This portfolio is designed to showcase my technical and creative capabilities through real-world examples and deliverables. While sensitive details have been modified to ensure confidentiality, the demonstrations accurately reflect the quality, approach, and problem-solving strategies I bring to my work. For additional information or inquiries about the projects featured, please feel free to reach out.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="header">
+      <nav id="navbar" class="navbar navbar-expand-xl bg-white">
+        <div class="container-lg px-sm-5 px-4">
+          <a class="navbar-brand" href="index.html"><img src="img/logo.svg" alt="" /></a>
+          <button
+            class="navbar_toggler d-xl-none d-block"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvas"
+            aria-expanded="false"
+          >
+            <img width="30" src="img/menu-icon.svg" alt="" />
+          </button>
+          <div class="offcanvas offcanvas-start" id="offcanvas">
+            <div class="d-xl-none d-flex justify-content-between p-4 mb-4">
+              <img height="45" src="img/logo.svg" alt="" />
+              <button type="button" class="btn_close" data-bs-dismiss="offcanvas">
+                <img width="30" src="img/close-icon.svg" alt="" />
+              </button>
+            </div>
+            <ul class="navbar-nav ms-xl-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html#header">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#metrics">Metrics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#tech-stack">Tech-Stack</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#showcase">Showcase</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#why-hire-me">Why Hire Me</a>
+              </li>
+              <li class="nav-item ms-xl-3 mt-xl-0 mt-3">
+                <a class="nav-link btn_chat" href="index.html#footer">Let’s chat</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="pt-5">
+        <div class="container-lg px-sm-5 px-4 pt-4">
+          <nav aria-label="breadcrumb" class="mb-5">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="index.html"><img class="me-1" width="22" src="img/home-icon.svg" alt="" /> Home</a>
+              </li>
+              <li class="breadcrumb-item"><a href="#">Case Studies</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <span>Email Lead Distribution</span>
+              </li>
+            </ol>
+          </nav>
+
+          <div class="row flex-lg-row flex-column-reverse pb-1">
+            <div class="col-lg-7 mb-4">
+              <h1 class="fw-semibold mb-3">
+                Case Study - <br />
+                <span class="text_skyblue"
+                  >Lead Distribution - <br> Email Routing</span
+                >
+              </h1>
+              <p class="fw_500">
+                As in integral part in a sales team process, the distribution of leads workflow
+                had an issue with efficiency which hindered production in assigning incoming leads to the sales team in a timely manner.
+              </p>
+              <p class="fw_500">
+                Before the implementation of this new system, the process for distributing leads was 100% manual, with offices in different regions, this meant manually forwarding lead details every morning to the different offices. This process was time-consuming, inefficient, and lack the component for scalability.
+              </p>
+              <p class="fw_500">
+                After familiarizing myself with the current process, I began brainstorming a method to best implement a workflow that would eliminate daily manual input.
+              </p>
+            </div>
+            <div class="col-lg-5 mb-4">
+              <img class="w-100" src="img/01_Visual (1).png" alt="" />
+            </div>
+          </div>
+
+          <div class="row align-items-center gx-1 pb-1">
+            <div class="col-lg-5 mb-4">
+              <img class="w-100" src="img/02_Visual (1).png" alt="" />
+            </div>
+            <div class="col-lg-7 mb-4">
+              <p class="fw_500">
+                With my research, I had 4 requirements to be met in order for this project to be a success:
+              </p>
+              <ol class="ol_list fw-semibold">
+                <li>
+                  <span class="text_skyblue">Reliable</span> - The system would be fully functional and operational at all times without the need of human intervention
+                </li>
+                <li>
+                  <span class="text_skyblue">Fully Automated</span> - The system would be fully automated without user input or frequent maintenance
+                </li>
+                <li>
+                  <span class="text_skyblue">Error Handling</span> - The system would possess error detection mechanisms in order to be fully autonomous
+                </li>
+                <li>
+                  <span class="text_skyblue">Data Visualization</span> – A dashboard for administrators to track and create reports of incoming leads
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="row flex-lg-row align-items-center flex-column-reverse gx-5 pb-1">
+            <div class="col-lg-7 mb-4">
+              <p class="fw_500">
+                Following the initial discovery phase, I determined the best software to build and
+                implement the database—one that would cover the project scope and require minimal
+                maintenance. I chose Airtable for its user-friendly interface, accessible back end,
+                and automated workflows.
+              </p>
+              <p class="fw_500">
+                During development, continuous collaboration continued to happen to best understand
+                how the end-user would interact with the product and eliminate steps that could be
+                automated for a more streamlined service.
+              </p>
+              <ul class="li_list fw_500 ps-3">
+                <li>A prospect fills the online form and submits their inquiry</li>
+                <li>
+                  The inquiry is sent to the central inbox
+                </li>
+                <li>
+                  The custom script runs every five minutes to detect incoming leads
+                </li>
+                <li>
+                  Once a new lead inquiry is detected, it routes to the corresponding inbox following the round-robin pattern
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-5 mb-4">
+              <img class="w-100" src="img/03_Visual (1).png" alt="" />
+            </div>
+          </div>
+
+          <div class="row gx-5 pb-3">
+            <div class="col-lg-5 mb-4">
+              <img class="w-100" src="img/04_Visual (1).png" alt="" />
+            </div>
+            <div class="col-lg-7 mb-lg-4">
+              <p class="fw_500">
+                Once the distribution pattern has been tested, and established, I then set up automation rules within the Outlook app to immediately print the lead paper copy once it reaches the designated inbox.
+              </p>
+              <p class="fw_500 mb-0">
+                The final product benefited the company in many ways by offering a fair and equal distribution of leads; Relieved administrators of daily repetitive tasks; provided leadership insights into incoming leads, and lead assignment metrics; and ensured a reliable system in which the sales team and admins could rely on for accurate metrics and lead allocation.
+              </p>
+            </div>
+          </div>
+          <hr class="my-3 border opacity-50">
+          <div class="pt-2 pb-5 overflow-hidden">
+            <h4 class="fw-semibold mb-4">Related <span class="text_skyblue">Case Studies</span></h4>
+            <div class="row g-4 showcase showcase_case overflow-hidden">
+              <div class="col-lg-4 col-md-6">
+                <div class="swiper-slide border rounded-4 overflow-hidden">
+                  <a href="Digital Lead Distribution.html">
+                    <div class="showcase_img">
+                      <img src="img/Digital Lead Distribution 2.0.png" alt="" />
+                    </div>
+                    <div class="title">
+                      <p class="mb-0">Digital Lead Distribution 2.0</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="swiper-slide border rounded-4 overflow-hidden">
+                  <a href="Vehicle-Database.html">
+                    <div class="showcase_img">
+                      <img src="img/01_Visual_Cover.png" alt="" />
+                    </div>
+                    <div class="title">
+                      <p class="mb-0">Vehicle Management Database</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="swiper-slide border rounded-4 overflow-hidden">
+                  <a href="#">
+                    <div class="showcase_img">
+                      <img src="img/RevOps Framework Redesign.png" alt="" />
+                    </div>
+                    <div class="title">
+                      <p class="mb-0">RevOps Framework Redesign</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="footer text-white">
+      <div class="container-lg position-relative z-2 px-sm-5 px-4">
+
+        <div class="footer_row py-4">
+          <a class="footer_logo mb-lg-0 mb-4" href="#"><img src="img/footer-logo.svg" alt="" /></a>
+          <div class="block ps-lg-4">
+            <div class="row align-items-center">
+              <div class="col">
+                <p class="mb-0 opacity-75">© Copyright 2025. All Rights Reserved.</p>
+              </div>
+              <div
+                class="col d-flex align-items-center justify-content-md-end justify-content-center"
+              >
+                <div class="footer_links">
+                  <button data-bs-toggle="modal" data-bs-target="#disclaimer_modal">Disclaimer</button>
+                  <a target="_blank" href="https://drive.google.com/file/d/1ECbrJb2rJL3-gwU8weNoXl30YXtA7Zmo/view">Download CV</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- JS -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
