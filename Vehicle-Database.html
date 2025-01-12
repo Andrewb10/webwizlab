@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <div class="modal fade" id="disclaimer_modal" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-header justify-content-end p-0 mb-2 border-0">
+            <button
+              type="button"
+              class="bg-transparent border-0"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <img src="img/minimize-icon.svg" width="30" class="white_img" alt="" />
+            </button>
+          </div>
+          <div class="modal-body modal_box bg-white rounded-4 p-4">
+              <h2 class="fw-semibold text_skyblue h1 mb-4"><img width="50" src="img/Footer_Disclaimer.svg" alt=""> Disclaimer</h2>
+              <p class="fw_500">The content presented on this website is intended solely for portfolio and demonstration purposes. All examples, case studies, and project details have been carefully modified, masked, or redacted to protect sensitive information, ensure privacy, and comply with confidentiality agreements.</p>
+              <p class="fw_500">While the work showcased reflects my skills, experience, and approach to problem-solving, it does not disclose any proprietary data, insider knowledge, or client-specific information. Any resemblance to real-world data or systems is purely coincidental or has been intentionally altered to maintain discretion.</p>
+              <p class="fw_500">This portfolio is designed to showcase my technical and creative capabilities through real-world examples and deliverables. While sensitive details have been modified to ensure confidentiality, the demonstrations accurately reflect the quality, approach, and problem-solving strategies I bring to my work. For additional information or inquiries about the projects featured, please feel free to reach out.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="header">
+      <nav id="navbar" class="navbar navbar-expand-xl bg-white">
+        <div class="container-lg px-sm-5 px-4">
+          <a class="navbar-brand" href="index.html"><img src="img/logo.svg" alt="" /></a>
+          <button
+            class="navbar_toggler d-xl-none d-block"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvas"
+            aria-expanded="false"
+          >
+            <img width="30" src="img/menu-icon.svg" alt="" />
+          </button>
+          <div class="offcanvas offcanvas-start" id="offcanvas">
+            <div class="d-xl-none d-flex justify-content-between p-4 mb-4">
+              <img height="45" src="img/logo.svg" alt="" />
+              <button type="button" class="btn_close" data-bs-dismiss="offcanvas">
+                <img width="30" src="img/close-icon.svg" alt="" />
+              </button>
+            </div>
+            <ul class="navbar-nav ms-xl-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html#header">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#metrics">Metrics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#showcase">Showcase</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#tech-stack">Tech-Stack</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#why-hire-me">Why Hire Me</a>
+              </li>
+              <li class="nav-item ms-xl-3 mt-xl-0 mt-3">
+                <a class="nav-link btn_chat" href="index.html#footer">Let’s chat</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="pt-5">
+        <div class="container-lg px-sm-5 px-4 pt-4">
+          <nav aria-label="breadcrumb" class="mb-5">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="index.html"><img class="me-1" width="22" src="img/home-icon.svg" alt="" /> Home</a>
+              </li>
+              <li class="breadcrumb-item"><a href="index.html#showcase">Case Studies</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <span>Vehicle Database</span>
+              </li>
+            </ol>
+          </nav>
+
+          <div class="row flex-lg-row flex-column-reverse pb-1">
+            <div class="col-lg-6 mb-4">
+              <h1 class="fw-semibold mb-3">
+                Case Study - <br />
+                <span class="text_skyblue"
+                  >Vehicle Management <br />
+                  Database</span
+                >
+              </h1>
+              <p class="fw_500">
+                My client needed a solution to replace manual data entry for car information such as
+                insurance details, mileage, gas spending, vehicle check-in and out, and more to have
+                a centralized hub for the company’s fleet of vehicles.
+              </p>
+              <p class="fw_500">
+                The method used for tracking and up-keeping data was through a Google Sheets
+                spreadsheet which made it difficult for accessing historical data and maintaining
+                up-to-date vital information.
+              </p>
+              <p class="fw_500">
+                After learning the workflow being used and collaborating with key department heads
+                to access the main pain-points in the process, I began my research on how to best
+                structure this database. I had 7 requirements to be met in order for this project to
+                be a success:
+              </p>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <img class="w-100" src="img/01_Visual_Cover.png" alt="" />
+            </div>
+          </div>
+
+          <div class="row gx-1 pb-1">
+            <div class="col-lg-5 mb-4">
+              <img class="w-100" src="img/02_Visualm.png" alt="" />
+            </div>
+            <div class="col-lg-7 mb-4">
+              <ol class="ol_list fw_500">
+                <li>
+                  <span class="text_skyblue">User Friendly</span> - The product needed to be
+                  intuitive and easy to navigate to ensure accessibility for all staff.
+                </li>
+                <li>
+                  <span class="text_skyblue">Effortless Data Retrieval</span> - The interface needed
+                  to make searching for specific details clear and seamless, providing a natural
+                  experience for the user.
+                </li>
+                <li>
+                  <span class="text_skyblue">Intuitive Data Management</span> - A streamlined
+                  approach to adding and updating vital details, ensuring changes automatically sync
+                  across all linked items to prevent duplicate entries.
+                </li>
+                <li>
+                  <span class="text_skyblue">Visually Appealing Interface</span> – The design
+                  required a modern and clean aesthetic, providing a user-friendly experience that
+                  is easy to navigate.
+                </li>
+                <li>
+                  <span class="text_skyblue">Quick Retrieval of Historical Records</span> - A
+                  crucial element was ensuring past data was well-organized and readily accessible
+                  for referencing ongoing cases, providing seamless access when needed.
+                </li>
+                <li>
+                  <span class="text_skyblue">Streamlined Data Sharing for Teams</span> - The
+                  managerial team required a simple and efficient method for sharing specific fleet
+                  details with the in-field team.
+                </li>
+                <li>
+                  <span class="text_skyblue">Straightforward Onboarding</span> - The transition
+                  process needed to be clear and simple, allowing users to adapt quickly to familiar
+                  data within an improved workflow.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="row flex-lg-row flex-column-reverse gx-5 pb-1">
+            <div class="col-lg-6 mb-4">
+              <p class="fw_500">
+                Following the initial discovery phase, I determined the best software to build and
+                implement the database—one that would cover the project scope and require minimal
+                maintenance. I chose Airtable for its user-friendly interface, accessible back end,
+                and automated workflows.
+              </p>
+              <p class="fw_500">
+                During development, continuous collaboration continued to happen to best understand
+                how the end-user would interact with the product and eliminate steps that could be
+                automated for a more streamlined service.
+              </p>
+              <p class="fw-semibold text_skyblue">The end product resulted in:</p>
+              <ul class="li_list fw-semibold ps-3">
+                <li>12 back end tables to best categorize and maintain data.</li>
+                <li>
+                  Multiple views in each table to group and filter data by specific categories.
+                </li>
+                <li>
+                  Automated workflows to link attributes across tables, update records across the
+                  database with a single input, and handle triage in needed processes.
+                </li>
+                <li>
+                  Front-end interface with a clean, visually appealing design that is easy to
+                  navigate and efficiently organized, offering teams a user-friendly, centralized
+                  hub to access all necessary information in one place.
+                </li>
+                <li>
+                  Mobile app designed for easy, on-the-go access to information and bulk data
+                  updates—ideal for scenarios where desktop access is limited, such as updating
+                  vehicle mileage in the fleet’s lot.
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <img class="w-100" src="img/03_Visualm.png" alt="" />
+            </div>
+          </div>
+
+          <div class="row gx-5 pb-3">
+            <div class="col-lg-5 mb-4">
+              <img class="w-100" src="img/04_Visual.png" alt="" />
+            </div>
+            <div class="col-lg-7 mb-lg-4">
+              <p class="fw_500">
+                The final product offered admins, and managers an integrated center to easily view
+                statistics of the vehicle fleet at a glance, helping them make informed decisions
+                and stay updated on each vehicle's operational life.
+              </p>
+              <p class="fw_500">
+                For staff, the new system provided a robust workflow that significantly reduced data
+                entry and manual time-keeping. It allowed them to check vehicles in and out by
+                filling just two fields and letting the system handle the rest, easily upload gas
+                receipts, and quickly look up information on-the-go using the mobile app.
+              </p>
+              <p class="fw_500">
+                Overall, the scope of work was successfully met, providing staff from all
+                departments with an advanced platform that contributed for a smoother workflow in
+                the day-to-day operations.
+              </p>
+            </div>
+          </div>
+          <hr class="my-3 border opacity-50">
+          <div class="pt-2 pb-5 overflow-hidden">
+            <h4 class="fw-semibold mb-4">Related <span class="text_skyblue">Case Studies</span></h4>
+            <div class="row g-4 showcase showcase_case overflow-hidden">
+              <div class="col-lg-4 col-md-6">
+                <div class="swiper-slide border rounded-4 overflow-hidden">
+                  <a href="Email Lead Distribution.html">
+                    <div class="showcase_img">
+                      <img src="img/Email Lead Distribution 1.0.png" alt="" />
+                    </div>
+                    <div class="title">
+                      <p class="mb-0">Email Lead Distribution 1.0</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="swiper-slide border rounded-4 overflow-hidden">
+                  <a href="Digital Lead Distribution.html">
+                    <div class="showcase_img">
+                      <img src="img/Digital Lead Distribution 2.0.png" alt="" />
+                    </div>
+                    <div class="title">
+                      <p class="mb-0">Digital Lead Distribution 2.0</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="swiper-slide border rounded-4 overflow-hidden">
+                  <a href="#">
+                    <div class="showcase_img">
+                      <img src="img/RevOps Framework Redesign.png" alt="" />
+                    </div>
+                    <div class="title">
+                      <p class="mb-0">RevOps Framework Redesign</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="footer text-white">
+      <div class="container-lg position-relative z-2 px-sm-5 px-4">
+
+        <div class="footer_row py-4">
+          <a class="footer_logo mb-lg-0 mb-4" href="#"><img src="img/footer-logo.svg" alt="" /></a>
+          <div class="block ps-lg-4">
+            <div class="row align-items-center">
+              <div class="col">
+                <p class="mb-0 opacity-75">© Copyright 2025. All Rights Reserved.</p>
+              </div>
+              <div
+                class="col d-flex align-items-center justify-content-md-end justify-content-center"
+              >
+                <div class="footer_links">
+                  <button data-bs-toggle="modal" data-bs-target="#disclaimer_modal">Disclaimer</button>
+                  <a target="_blank" href="https://drive.google.com/file/d/1ECbrJb2rJL3-gwU8weNoXl30YXtA7Zmo/view">Download CV</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- JS -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
