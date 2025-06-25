@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Wiz Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    
+    <style>
+        :root {
+            --page-bg: #1D2A65;
+            --page-ring-1: #202E6F;
+            --page-ring-2: #223278;
+            --editor-bg: #1E1E1E;
+            --sidebar-bg: #252526;
+            --notfound-bg: #223B1E;
+            --notfound-ball: #435A19;
+            --notfound-font: #C5D805;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            background-color: var(--page-bg); font-family: 'Source Code Pro', monospace;
+            color: #D4D4D4; position: relative; overflow: hidden;
+        }
+
+        body::before, body::after {
+            content: ''; position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%); border-radius: 50%; z-index: -1;
+        }
+        body::before { width: 100vmin; height: 100vmin; max-width: 900px; max-height: 900px; border: 80px solid var(--page-ring-1); }
+        body::after { width: 70vmin; height: 70vmin; max-width: 650px; max-height: 650px; border: 70px solid var(--page-ring-2); }
+
+        .editor-window {
+            width: 90vw; max-width: 1000px; height: 80vh; max-height: 700px;
+            background-color: var(--editor-bg); border-radius: 8px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: flex; flex-direction: column; overflow: hidden; z-index: 1;
+        }
+        .editor-header {
+            display: flex; justify-content: space-between; align-items: center;
+            background-color: #3C3C3C; padding: 10px; flex-shrink: 0;
+        }
+        .window-controls { display: flex; gap: 8px; }
+        .control { width: 12px; height: 12px; border-radius: 50%; }
+        .control.close { background-color: #FF5F56; } .control.minimize { background-color: #FFBD2E; } .control.maximize { background-color: #27C93F; }
+        .logo-placeholder { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 16px; color: #ccc; }
+
+        .editor-body { display: flex; flex-grow: 1; min-height: 0; }
+        .sidebar { width: 200px; background-color: var(--sidebar-bg); padding: 10px; font-size: 14px; flex-shrink: 0; }
+        .sidebar ul { list-style: none; }
+        .sidebar li { padding: 4px 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .sidebar-item-icon { font-weight: bold; }
+        .file.active { background-color: #37373d; border-radius: 4px; }
+        
+        .main-content { display: flex; flex-direction: column; flex-grow: 1; min-width: 0; }
+        .tabs { display: flex; flex-shrink: 0; }
+        .tab { padding: 10px 20px; background-color: #2D2D2D; font-size: 14px; }
+        .tab.active { background-color: #1E1E1E; }
+        
+        .code-area-wrapper { flex-grow: 1; position: relative; background-color: var(--editor-bg); }
+        .code-area {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 15px;
+            font-size: 16px; line-height: 1.5; white-space: pre-wrap; overflow: auto;
+        }
+        .code-area .token-comment { color: #6A9955; } .code-area .token-keyword { color: #569CD6; } .code-area .token-string { color: #CE9178; } .code-area .token-variable { color: #9CDCFE; }
+        .cursor { display: inline-block; background-color: #D4D4D4; width: 8px; margin-left: 2px; animation: blink 1s infinite; }
+        #dots .cursor { opacity: 0; }
+        
+        .not-found-container {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--notfound-bg); display: none; overflow: hidden; z-index: 10;
+        }
+        #physics-canvas { position: absolute; top: 0; left: 0; z-index: 1; }
+        .message-content {
+            position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; width: 100%; height: 100%; color: var(--notfound-font);
+            font-family: 'Fredoka', sans-serif; pointer-events: none; user-select: none;
+        }
+        .message-content h1 { font-size: clamp(5rem, 15vw, 8rem); font-weight: 600; line-height: 1; }
+        .message-content h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 500; }
+        .message-content p { font-size: clamp(1rem, 4vw, 1.5rem); font-weight: 600; margin-top: 10px; }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        
+        /* CHANGE 1: New Digital Deconstruction Glitch Style */
+        .glitching {
+            background-color: #000 !important; /* Override other backgrounds */
+            color: #0F0;
+            font-family: 'Source Code Pro', monospace;
+            font-weight: 700;
+            text-shadow: 0 0 8px #0F0;
+            word-wrap: break-word;
+        }
+
+        .page-logo {
+            position: fixed; /* Positions the logo relative to the browser window */
+            top: 2rem;       /* 2rem space from the top */
+            left: 2rem;      /* 2rem space from the left */
+            width: 225px;    /* Your specified width */
+            height: 48px;    /* Your specified height */
+            z-index: 20;     /* Ensures it's on top of everything else */
+        }
+
+        @media (max-width: 768px) { .sidebar { display: none; } .editor-window { height: 90vh; width: 95vw; } }
+    </style>
+</head>
+<body>
+
+    <img src="img/logo2.png" alt="" class="page-logo" />
+
+    <div class="editor-window">
+        <!-- ... (Editor UI structure remains the same) ... -->
+        <header class="editor-header"><div class="window-controls"><div class="control close"></div><div class="control minimize"></div><div class="control maximize"></div></div><div class="logo-placeholder">WEBWIZLAB</div></header>
+        <div class="editor-body">
+            <aside class="sidebar"><p>wispy</p><ul><li><span class="sidebar-item-icon">›</span>.github</li><li><span class="sidebar-item-icon">›</span>node_modules</li><li><span class="sidebar-item-icon">▾</span>src<ul><li class="file active" style="padding-left: 20px;">📄 index.js</li></ul></li><li>📄 .gitignore</li><li>📄 README.md</li></ul></aside>
+            <main class="main-content">
+                <div class="tabs"><div class="tab active">index.js</div><div class="tab">README.md</div><div class="tab">.gitignore</div></div>
+                <div class="code-area-wrapper">
+                    <div id="code-area" class="code-area"><span id="code-content"></span><span class="cursor" id="cursor">|</span></div>
+                    <div id="not-found-container" class="not-found-container"><canvas id="physics-canvas"></canvas><div class="message-content"><h1>404</h1><h2>Coming Soon!</h2><p>Page under redesign</p></div></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const { Engine, Render, Runner, Bodies, Composite, Events, Body, Vector } = Matter;
+            
+            const notFoundContainerEl = document.getElementById('not-found-container');
+            const codeAreaEl = document.getElementById('code-area');
+            
+            // --- BALL PIT ANIMATION ---
+            const startBallPitAnimation = (container) => {
+                const canvas = container.querySelector('#physics-canvas');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                if (width === 0 || height === 0) return; 
+
+                canvas.width = width; canvas.height = height;
+                const ballColor = getComputedStyle(document.documentElement).getPropertyValue('--notfound-ball').trim();
+                const engine = Engine.create({ gravity: { y: 0.4 } });
+                const world = engine.world;
+                const render = Render.create({ canvas: canvas, engine: engine, options: { width, height, wireframes: false, background: 'transparent' } });
+
+                const wallThickness = 60;
+                const wallOptions = { isStatic: true, render: { visible: false } };
+                
+                // CHANGE 2: Create invisible "bumps" on the floor
+                const bumps = [
+                    Bodies.circle(width * 0.25, height - 10, 10, { isStatic: true, render: { visible: false } }),
+                    Bodies.circle(width * 0.7, height - 15, 12, { isStatic: true, render: { visible: false } }),
+                ];
+                
+                Composite.add(world, [
+                    Bodies.rectangle(width / 2, height + wallThickness / 2, width, wallThickness, wallOptions),
+                    Bodies.rectangle(width + wallThickness / 2, height / 2, wallThickness, height, wallOptions),
+                    Bodies.rectangle(-wallThickness / 2, height / 2, wallThickness, height, wallOptions),
+                    Bodies.rectangle(width / 2, -wallThickness / 2, width, wallThickness, wallOptions),
+                    ...bumps // Add bumps to the world
+                ]);
+
+                const maxBalls = Math.floor(width * height / 2250);
+                let ballCount = 0;
+                const ballRainInterval = setInterval(() => {
+                    if (ballCount >= maxBalls) { clearInterval(ballRainInterval); return; }
+                    
+                    // CHANGE 2: Give each ball a slightly random radius
+                    const radius = 16 + Math.random() * 4;
+                    
+                    const x = Math.random() * (width - radius * 2) + radius;
+                    const ball = Bodies.circle(x, -30, radius, {
+                        restitution: 0.7, friction: 0.01, frictionAir: 0.000, density: 0.001,
+                        render: { fillStyle: ballColor }
+                    });
+                    Composite.add(world, ball); ballCount++;
+                }, 50);
+
+                // ... (Mouse interaction logic remains the same) ...
+                let mousePosition = { x: -200, y: -200 };
+                container.addEventListener('mousemove', (event) => { const rect = container.getBoundingClientRect(); mousePosition = { x: event.clientX - rect.left, y: event.clientY - rect.top }; });
+                container.addEventListener('mouseleave', () => { mousePosition = { x: -200, y: -200 }; });
+                Events.on(engine, 'beforeUpdate', () => {
+                    const allBodies = Composite.allBodies(world); const interactionRadius = 60; const maxSpeed = 8;
+                    for (let i = 0; i < allBodies.length; i++) {
+                        const body = allBodies[i]; if (body.isStatic) continue;
+                        const distance = Vector.magnitude(Vector.sub(body.position, mousePosition));
+                        if (distance < interactionRadius) {
+                            const direction = Vector.normalise(Vector.sub(body.position, mousePosition));
+                            const speed = maxSpeed * (1 - (distance / interactionRadius));
+                            const velocity = Vector.mult(direction, speed);
+                            Body.setVelocity(body, Vector.add(body.velocity, velocity));
+                        }
+                    }
+                });
+                Render.run(render); Runner.run(Runner.create(), engine);
+            };
+
+            // --- MAIN SEQUENCE ---
+            const startAnimation = async () => {
+                const codeContentEl = document.getElementById('code-content');
+                const cursorEl = document.getElementById('cursor');
+                const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+                const codeLines = [
+                    ` <span class="token-comment">// Imports</span>`, ` <span class="token-keyword">import</span> <span class="token-variable">mongoose</span>, { <span class="token-variable">Schema</span> } <span class="token-keyword">from</span> <span class="token-string">'mongoose'</span>`, ``, ` <span class="token-comment">// Collection name</span>`, ` <span class="token-keyword">export</span> <span class="token-keyword">const</span> <span class="token-variable">collection</span> = <span class="token-string">'Product'</span>`, ``, ` <span class="token-comment">// Schema</span>`, ` <span class="token-keyword">const</span> <span class="token-variable">schema</span> <span id="dots">...</span>`
+                ];
+                for (const line of codeLines) {
+                    const tempDiv = document.createElement('div'); tempDiv.innerHTML = line;
+                    for (const node of Array.from(tempDiv.childNodes)) {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            // CHANGE 3: Faster typing speed (80ms -> 60ms)
+                            for (const char of node.textContent) { codeContentEl.appendChild(document.createTextNode(char)); await sleep(70); }
+                        } else { codeContentEl.appendChild(node.cloneNode(true)); }
+                    }
+                    codeContentEl.appendChild(document.createTextNode('\n')); await sleep(250);
+                }
+                const dotsEl = document.getElementById('dots'); if (dotsEl) {
+                    cursorEl.style.display = 'none'; let isVisible = true;
+                    for(let i=0; i<5; i++) { dotsEl.style.opacity = isVisible ? '1' : '0'; isVisible = !isVisible; await sleep(300); }
+                }
+                
+                // CHANGE 1: New Glitch Logic
+                codeAreaEl.classList.add('glitching');
+                const originalLength = codeAreaEl.innerText.length;
+                const chars = "01"; // Binary rain
+                let glitchInterval = setInterval(() => {
+                    let randomText = '';
+                    for (let i = 0; i < originalLength * 4; i++) {
+                        randomText += chars.charAt(Math.floor(Math.random() * chars.length));
+                    }
+                    codeAreaEl.innerText = randomText;
+                }, 50);
+
+                await sleep(1500);
+                clearInterval(glitchInterval);
+
+                codeAreaEl.classList.remove('glitching');
+                codeAreaEl.style.display = 'none';
+                notFoundContainerEl.style.display = 'block';
+
+                requestAnimationFrame(() => {
+                    startBallPitAnimation(notFoundContainerEl);
+                });
+            };
+
+            startAnimation();
+        });
+    </script>
+</body>
+</html>
